@@ -2,8 +2,14 @@
 require('dotenv').config();
 const dbPassword = process.env.DB_PASSWORD;
 const express = require('express');
+const cors = require('cors');
 const app = express();
+const corsOptions = {
+  origin: 'http://localhost:3001', // Allow only this origin
+  methods: ['GET', 'POST'], // Allow only certain HTTP methods
+};
 
+app.use(cors(corsOptions));
 // Define a simple array of user data
 const users = [
     { id: 1, name: "John Doe", email: "john@example.com" },
