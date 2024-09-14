@@ -5,7 +5,7 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 const corsOptions = {
-  origin: 'http://localhost:3001', // Allow only this origin
+  origin: process.env.CORS_ORIGIN, // Allow only this origin
   methods: ['GET', 'POST'], // Allow only certain HTTP methods
 };
 
