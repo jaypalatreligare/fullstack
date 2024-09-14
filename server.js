@@ -5,8 +5,7 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 const corsOptions = {
-  origin: process.env.CORS_ORIGIN, // Allow only this origin
-  methods: ['GET', 'POST'], // Allow only certain HTTP methods
+  origin: '*' 
 };
 
 app.use(cors(corsOptions));
@@ -16,6 +15,10 @@ const users = [
     { id: 2, name: "Jane Smith", email: "jane@example.com" },
     { id: 3, name: "Alice Johnson", email: "alice@example.com" }
 ];
+
+app.get('/', (req, res) => {
+    res.json(users); // Send the user data as a JSON response
+});
 
 // Define a route to return all users
 app.get('/users', (req, res) => {
